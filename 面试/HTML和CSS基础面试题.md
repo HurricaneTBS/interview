@@ -472,3 +472,14 @@ rem 是一个长度单位
 3. vw/vh
 - rem的弊端
 - 网页视口尺寸
+
+window.screen.height // 屏幕高度
+window.innerHeight // 网页视口高度
+document.body.clientHeight // body高度
+
+1vh = 网页视口高度的1/100
+1vw = 网页视口宽度的1/100
+vmax取两者最大值；vmin取两者最小值
+
+## 总结
+如何理解语意化
