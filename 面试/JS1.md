@@ -94,7 +94,7 @@ obj2.address.city = "sdasda";
 console.log(obj1.address.city);
 
 function deepClone(obj = {}) {
-  if (typeof obj !== "object" || obj === null) {
+  if (typeof obj !== "object" || obj == null) {
     return obj;
   }
 
@@ -114,4 +114,90 @@ function deepClone(obj = {}) {
 
   return result;
 }
+```
+
+## 变量计算-类型转换
+
+- 字符串拼接
+
+```js
+const a = 100 + 10; // 110 没转换
+const b = 100 + "10"; // 10010  转换了
+const c = true + "10"; // 'true10'  转换了
+```
+
+- ==
+
+```js
+100 == "100"; // true
+0 == ""; // true
+0 == false; // true
+false == ""; // true
+null == undefined; // true
+```
+
+== 会将`''`、`0`等转换为`false`
+
+```js
+//  除了==null之外，其他一律都用===，例如：
+const obj = { x: 100 };
+if (obj.a == null) {
+}
+// 相当于
+// if(obj.a === null || obj.a === undefined){}
+```
+
+- if 语句和逻辑运算
+
+truly 变量：!!a === true 的变量
+falsely 变量：!!a === false 的变量
+
+就是经过两步非运算，得到的布尔值。
+
+```js
+// 以下变量是falsely变量，除此以外都是truly变量
+!!0 === false;
+!!NaN === false;
+!!"" === false;
+!!null === false;
+!!undefined === false;
+!!false === false;
+```
+
+if 语句判断的就是 truly 或者 falsely 变量
+
+```js
+// truly变量
+const a = true;
+if (a) {
+}
+const b = 100;
+if (b) {
+}
+
+// falsely变量
+const c = "";
+if (c) {
+}
+const d = null;
+if (d) {
+}
+let e;
+if (e) {
+}
+```
+
+### 逻辑判断
+
+```js
+/**
+ * 第一个是truely变量，就会去执行&&后的操作，第一个是falsely变量，就会直接返回falsely变量
+ * 真？往后走，真？往后走哦
+*/
+console.log(10 && 0); // 0 
+/**
+ * 假？往后走，假？往后走
+*/
+console.log("" || "abc"); // 'abc'
+console.log(!window.abc); // true
 ```
