@@ -472,6 +472,8 @@ rem 是一个长度单位
 3. vw/vh
 - rem的弊端
 - 网页视口尺寸
+- vw/vh
+
 
 window.screen.height // 屏幕高度
 window.innerHeight // 网页视口高度
